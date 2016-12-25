@@ -1,0 +1,64 @@
+header {
+  background-color: black;
+}
+
+body {
+    position: relative;
+    background-color: white;
+    margin:  0px;
+}
+
+h1 {
+    color: navy;
+    margin-left: 20px;
+}
+
+nav {
+    margin-left: 30px;
+}
+
+main {
+    margin-left: 200px;
+
+}
+
+
+
+a
+{
+color: black;
+text-decoration: none;
+/*font-weight:lighter;*/
+font-size: 20px;
+font-family: "Times New Roman", Times, sans-serif;
+}
+
+.flex-container {
+    position: fixed;
+    display: -webkit-flex;
+    display: inline-flex;
+    -webkit-flex-direction: column;
+    /*-webkit-justify-content: space-between;*/
+    flex-direction: column;
+    width: 130px;
+    height: 100%;
+    background-color: lightgrey;/*
+    top:; bottom:0; left:0;*/
+    line-height:1.4em;
+
+}
+
+.flex-item{
+    /*margin-left: auto;*/
+    margin:10px 15px 10px 10px;
+}
+
+.text_header {
+    color: white;
+    text-decoration: none;
+    font-weight:bold;
+    font-size: 35px;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+}
+
