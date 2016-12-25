@@ -15,7 +15,7 @@ h1 {
 }
 
 nav {
-    margin-left: 30px;
+    margin-left: 00px;
 }
 
 main {
@@ -32,6 +32,7 @@ footer {
     color: white;
     text-align: center;
     font-size: 14px;
+    text-align: center;
 
 
 }
@@ -82,19 +83,19 @@ font-family: "Arial";
     /*font-weight:bold;*/
     font-size: 18px;
     font-family: "Arial";
-    text-align: center;
+    text-align: left;
     margin-left: 10px
+
 }
 
 .button_link {
     background-color: black;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding-bottom: 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
@@ -117,6 +118,20 @@ font-family: "Arial";
     align-content: center;
 }
 
+.button_bottom {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    vertical-align: :align-content;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+
+}
 
 
 
@@ -125,3 +140,11 @@ font-family: "Arial";
     color: white;
     opacity: 20%;
 }
+
+.button_bottom:hover {
+    background-color: white /* Green */
+    color: white;
+    opacity: 20%;
+}
+
+.margin_header{ margin-left: 10px;  }
