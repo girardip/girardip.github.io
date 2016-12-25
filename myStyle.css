@@ -9,8 +9,9 @@ body {
 }
 
 h1 {
-    color: navy;
+    color: black;
     margin-left: 20px;
+    font-family: "Arial";
 }
 
 nav {
@@ -18,10 +19,22 @@ nav {
 }
 
 main {
-    margin-left: 200px;
-
+    margin-left: 50px;
 }
 
+footer {
+    /*height: 20px;*/
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-family: "Arial";
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+
+
+}
 
 
 a
@@ -30,10 +43,10 @@ color: black;
 text-decoration: none;
 /*font-weight:lighter;*/
 font-size: 20px;
-font-family: "Times New Roman", Times, sans-serif;
+font-family: "Arial";
 }
 
-.flex-container {
+.flex-container-left {
     position: fixed;
     display: -webkit-flex;
     display: inline-flex;
@@ -45,20 +58,70 @@ font-family: "Times New Roman", Times, sans-serif;
     background-color: lightgrey;/*
     top:; bottom:0; left:0;*/
     line-height:1.4em;
+    float: left;
 
 }
+
+
 
 .flex-item{
     /*margin-left: auto;*/
     margin:10px 15px 10px 10px;
 }
 
-.text_header {
-    color: white;
-    text-decoration: none;
-    font-weight:bold;
-    font-size: 35px;
-    font-family: "Times New Roman", Times, serif;
+
+.name_header {
+
     text-align: center;
 }
 
+
+.sections_header {
+    color: white;
+    text-decoration: none;
+    /*font-weight:bold;*/
+    font-size: 18px;
+    font-family: "Arial";
+    text-align: center;
+    margin-left: 10px
+}
+
+.button_link {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button_name {
+    background-color: black;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight:bold;
+    font-size: 35px;
+    font-family: Impact, Charcoal, sans-serif;
+    align-content: center;
+}
+
+
+
+
+.button_link:hover {
+    background-color: white /* Green */
+    color: white;
+    opacity: 20%;
+}
