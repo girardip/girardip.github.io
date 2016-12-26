@@ -151,7 +151,43 @@ font-family: Arial, Helvetica, sans-serif;
 
 .right {
     position: absolute;
-    right: 50px;
-    width: 300px;
-    padding: 10px;
+    right: 15%;
+    width: 22%;
+    padding-top: 3%;
+}
+
+
+.left {
+    position: absolute;
+    left: 15%;
+    width: 34%;
+    padding-top: 8%;
+}
+
+.main_text {
+    font-size: 16px;
+    font-family: "Arial";
+    text-align: justify;
+
+}
+
+
+.img-circle {
+    border-radius: 50%;
+}
+
+ul {
+    font-size: 16px;
+    font-family: "Arial";
+
+}
+
+li {
+    margin: 10px 0
+
+}
+
+.resume {
+    position: absolute;
+    bottom: 0px;
 }
