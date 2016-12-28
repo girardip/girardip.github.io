@@ -1,5 +1,6 @@
 header {
   background-color: black;
+  /*margin-top: 5px;*/
 }
 
 body {
@@ -14,9 +15,6 @@ h1 {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-nav {
-    margin-left: 00px;
-}
 
 main {
     margin-left: 0px;
@@ -96,7 +94,7 @@ font-family: Arial, Helvetica, sans-serif;
 
 
 .name_header {
-
+    /*margin-top: 5px;*/
     text-align: center;
 }
 
@@ -235,7 +233,7 @@ li {
 
 .float-left {
 float:left;
-width:26%;
+width:31%;
 margin-left: 3%;
 margin-right: 3%;
 margin-top: 10px;
@@ -245,9 +243,14 @@ overflow: auto;
 
 .float-left-first {
 float:left;
-width:30%;
+width:20%;
 margin-left: 3%;
 margin-right: 3%;
-margin-top: -5px;
+margin-top: 10px;
 /*margin-bottom: 20%;*/
 }
+
+
+.mod_br {height: 15px;
+    background-color: black;
+    width: 100%;}
