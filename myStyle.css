@@ -1,6 +1,8 @@
 header {
   background-color: black;
   /*margin-top: 5px;*/
+  align-content: center;
+  text-align: center;
 }
 
 body {
@@ -58,6 +60,9 @@ text-decoration: none;
 /*font-weight:lighter;*/
 font-size: 20px;
 font-family: Arial, Helvetica, sans-serif;
+display: inline-block;
+align-items: center;
+text-align: center;
 }
 
 a.two
@@ -106,7 +111,8 @@ font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-family: "Arial";
     text-align: left;
-    margin-left: 10px
+    margin-left: 5px;
+    margin-right: 5px;
 
 }
 
@@ -157,20 +163,7 @@ font-family: Arial, Helvetica, sans-serif;
 }
 
 
-
-.sectoins_header:hover {
-    background-color: white /* Green */
-    color: white;
-    opacity: 20%;
-}
-
-.button_bottom:hover {
-    background-color: white /* Green */
-    color: white;
-    opacity: 20%;
-}
-
-.margin_header{ margin-left: 10px;  }
+.margin_header{ margin-top: 10px; margin-bottom: 00px; vertical-align: middle; text-align: center; align-content: center; }
 
 .right {
     position: absolute;
@@ -252,5 +245,8 @@ margin-top: 10px;
 
 
 .mod_br {height: 15px;
+    background-color: black;
+    width: 100%;}
+.mod_br_small {height: 5px;
     background-color: black;
     width: 100%;}
