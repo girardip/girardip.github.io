@@ -27,6 +27,7 @@ main.aboutme {
     margin-top: 15px;
     margin-bottom: 15%
     width:100%;
+    overflow: auto;
 }
 
 footer {
@@ -53,6 +54,8 @@ color: white;
 
 }
 
+img.commencement {overflow: auto;}
+
 a.one
 {
 color: black;
@@ -66,13 +69,17 @@ text-align: center;
 }
 
 a.two
-{
+{ text-decoration: none;
 color: black;
-text-decoration: underline;
 /*font-weight:lighter;*/
 font-size: 16px;
 font-family: Arial, Helvetica, sans-serif;
 }
+
+a.two:hover {text-decoration: underline;
+        color: blue;
+}
+
 
 .flex-container-left {
     position: fixed;
@@ -169,7 +176,7 @@ font-family: Arial, Helvetica, sans-serif;
     position: absolute;
     right: 15%;
     width: 22%;
-    padding-top: 3%;
+    padding-top: 5%;
 }
 
 
@@ -186,9 +193,19 @@ font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
 
 }
+
+.main_text_about_first {
+    font-size: 14px;
+    font-family: "Arial";
+    text-align: justify;
+
+}
+
+
 .main_text_about {
     font-size: 14px;
     font-family: "Arial";
+    margin-top: -10px;
     text-align: justify;
 
 }
@@ -226,7 +243,7 @@ li {
 
 .float-left {
 float:left;
-width:31%;
+width:30%;
 margin-left: 3%;
 margin-right: 3%;
 margin-top: 10px;
@@ -238,8 +255,8 @@ overflow: auto;
 float:left;
 width:20%;
 margin-left: 3%;
-margin-right: 3%;
-margin-top: 10px;
+margin-right: 5%;
+margin-top: -10px;
 /*margin-bottom: 20%;*/
 }
 
@@ -250,3 +267,11 @@ margin-top: 10px;
 .mod_br_small {height: 5px;
     background-color: black;
     width: 100%;}
+
+.footer_blank {height: 20px; margin-top: 20px;}
+
+figcaption {
+    font-family: "Arial";
+    font-size:12px;
+    margin-bottom: 25px;
+}
