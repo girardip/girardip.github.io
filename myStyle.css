@@ -182,6 +182,17 @@ a.two:hover {text-decoration: underline;
     /*padding-top: 5%;*/
 }
 
+.photo {
+    float: none;
+    width: 80%;
+    /*height: 5%;*/
+    overflow: auto;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-top: 8%;
+    font-size:x-large;
+    /*padding-top: 8%;*/
+}
 
 .left {
     float: left;
