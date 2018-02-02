@@ -176,7 +176,7 @@ a.two:hover {text-decoration: underline;
     float: right;
     margin-right: 15%;
     margin-left: 5%;
-    width: 30%;
+    width: 20%;
     margin-top: 5%;
 
     /*padding-top: 5%;*/
@@ -185,7 +185,7 @@ a.two:hover {text-decoration: underline;
 
 .left {
     float: left;
-    width: 30%;
+    width: 40%;
     /*height: 5%;*/
     overflow: auto;
     margin-right: 5%;
@@ -203,7 +203,7 @@ a.two:hover {text-decoration: underline;
 .main_text_big {
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: justify;
+    text-align: center;
 
 }
 
