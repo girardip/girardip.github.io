@@ -344,6 +344,13 @@ figcaption {
 
 }
 
+.image-container {
+    width: 35%;
+    margin-left: 20px; /* Adjust the left margin as needed */
+    margin-right: 20px; /* Add margin to the right */
+}
+
+
 .float-left-c {
 float:left;
 width:30%;
