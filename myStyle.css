@@ -268,3 +268,8 @@ figcaption {
     margin-bottom: 0; /* Add this to reduce the bottom margin */
 }
 
+.linkedin-logo {
+            width: 20px; /* Adjust the size of the LinkedIn logo */
+            height: 20px;
+            margin-right: 5px; /* Add some spacing */
+        }
