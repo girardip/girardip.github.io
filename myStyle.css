@@ -158,7 +158,6 @@ a.two:hover {
     font-size: 16px;
     text-align: justify;
     font-family: 'Open Sans', sans-serif;
-    break-inside: avoid-column; /* Add this line to prevent content from breaking across columns */
 }
 
 .main_text_big {
