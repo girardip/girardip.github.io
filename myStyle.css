@@ -32,6 +32,7 @@ footer {
     padding: 10px; /* Add padding for better visibility */
     font-family: 'Open Sans', sans-serif;
     text-decoration: none; /* Remove underline for all links within the footer */
+    margin-right: 10px; /* Adjust the value based on the desired spacing */
 }
 
 
