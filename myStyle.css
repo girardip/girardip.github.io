@@ -31,10 +31,15 @@ footer {
     text-align: center;
     padding: 10px; /* Add padding for better visibility */
     font-family: 'Open Sans', sans-serif;
-    text-decoration: none; /* Remove underline for all links within the footer */
+}
+
+footer a.linkedin-logo {
     margin-right: 10px; /* Adjust the value based on the desired spacing */
 }
 
+footer a {
+    text-decoration: none; /* Remove underline for all links within the footer */
+}
 
 a.one {
     color: black;
