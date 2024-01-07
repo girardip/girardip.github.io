@@ -151,13 +151,22 @@ a.two:hover {
     margin-top: 8%;
 }
 
+.main_text-container {
+    column-count: 1;
+    column-gap: 0;
+    width: 100%;
+}
+
 .main_text {
+    /* Your existing styles for .main_text */
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 5%;
     font-size: 16px;
     text-align: justify;
     font-family: 'Open Sans', sans-serif;
+    column-count: initial; /* Reset column count */
+    column-gap: initial; /* Reset column gap */
 }
 
 .main_text_big {
