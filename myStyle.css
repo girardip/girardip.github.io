@@ -25,7 +25,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 20px; /* Adjust this value based on your footer height */
+    height: 40px; /* Adjust this value based on your footer height */
     font-size: 14px;
     background-color: black;
     color: white;
@@ -153,6 +153,7 @@ a.two:hover {
     font-size: 16px;
     text-align: justify;
     font-family: 'Open Sans', sans-serif;
+    break-inside: avoid-column; /* Add this line to prevent content from breaking across columns */
 }
 
 .main_text_big {
