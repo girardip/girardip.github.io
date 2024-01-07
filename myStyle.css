@@ -29,8 +29,10 @@ footer {
     background-color: black;
     color: white;
     text-align: center;
+    padding: 10px; /* Add padding for better visibility */
     font-family: 'Open Sans', sans-serif;
 }
+
 
 a.one {
     color: black;
