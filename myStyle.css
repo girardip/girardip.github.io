@@ -25,21 +25,26 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 40px; /* Adjust this value based on your footer height */
+    height: 40px;
     font-size: 14px;
     background-color: black;
     color: white;
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    justify-content: center; /* Align items horizontally in the center */
+}
+
+footer a.linkedin-logo {
+    margin-right: 10px;
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
 }
 
 body, html {
     margin: 0;
     padding: 0;
-}
-
-footer a.linkedin-logo {
-    margin-right: 10px; /* Adjust the value based on the desired spacing */
 }
 
 footer a {
