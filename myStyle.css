@@ -132,7 +132,7 @@ a.two:hover {
 }
 
 .main_text {
-    font-size: 16px;
+    font-size: 18px;
     text-align: justify;
 }
 
@@ -248,3 +248,14 @@ figcaption {
     margin-left: 20px;
     margin-right: 20px;
 }
+
+.ex1 {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: justify;
+    font-family: 'Open Sans', sans-serif;
+}
+
