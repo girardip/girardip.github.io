@@ -133,8 +133,12 @@ a.two:hover {
 }
 
 .main_text {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
     font-size: 18px;
     text-align: justify;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .main_text_big {
