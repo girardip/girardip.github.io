@@ -5,20 +5,28 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="myStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Business Consulting - Pedro Girardi - </title>
     <style>
-        /* External styles can be placed in myStyle.css */
-        .main_text {
-            font-size: 16px;
+      .main_text {
+            font-size: 16px; /* Adjust font size */
             text-align: justify;
         }
 
-        .main_text-container li {
-            text-indent: 10px;
-            padding-left: 15%;
-            padding-right: 10%;
+        
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align items at the top */
         }
+
+
+
+    .main_text-container li {
+        text-indent: 10px; /* Adjust the value as needed */
+        padding-left: 15%;
+        padding-right: 10%;
+    }
     </style>
-    <title>Business Consulting - Pedro Girardi - </title>
 </head>
 
 <body>
@@ -26,54 +34,49 @@
     <header>
         <div class="mod_br"></div>
         <div class="name_header">
-            <a href="/index">
-                <div class="button_name">Pedro Girardi</div>
-            </a>
+            <a href="/index"><div class="button_name">Pedro Girardi</div></a>
         </div>
         <div class="margin_header">
-            <ul class="header-nav">
-                <li><a class="one" href="/business-consulting">Business Consulting</a></li>
-                <li><a class="one" href="/quantitative-training">Quantitative Tutoring for Analysts</a></li>
-                <li><a class="one" href="/cv">CV</a></li>
-                <li><a class="one" href="/italiano">Italiano</a></li>
-            </ul>
+            <a class="one" href="/business-consulting"><div class="sections_header"> Business Consulting </div></a>
+            <a class="one" href="/quantitative-training"><div class="sections_header"> Quantitative Tutoring for Analysts </div></a>
+            <a class="one" href="/cv"><div class="sections_header"> CV </div></a>
+            <a class="one" href="/italiano"><div class="sections_header"> Italiano </div></a>
         </div>
         <div class="mod_br_small"></div>
     </header>
 
     <main>
-        <div class="text-container main_text-container">
-            <p class="main_text">
-                <span class="main-heading"><strong>I am a BCG-trained consultant with a passion for solving data problems and meeting new people.</strong></span> My extroverted side is great at connecting with stakeholders to understand the context and key pieces of information. The data geek in me can piece together messy data scattered across datasets and generate new insights. Bringing these skills together, I can provide recommendations based on a holistic understanding of the business.
-                <br> <br>
-                Here are some of my favorite projects: <br> <br>
 
-                <span class="project-heading"><strong>Profitability per product line estimation </strong></span>
-                <ul>
-                    <li><strong>Where:</strong> Freelancing, American Italian tourism company</li>
-                    <li><strong>Problem:</strong> Client did not know the labor costs of each product, limiting strategical decision-making</li>
-                    <li><strong>Solution:</strong> I estimated labor costs across product lines. Moreover, I identified a gap in the knowledge of physical asset costs (e.g., vans and bikes). Once I calculated the costs and profitability per product line, I showed some of the growth bets of the company and its largest B2B client were actually not profitable.</li>
-                    <li><strong>Skills:</strong> Excel modeling, interviews with 15+ employees</li>
-                </ul>
+            <div class="text-container main_text-container">
+                <p class="main_text">
+                    <font size="+1"><b>I am a BCG-trained consultant with a passion for solving data problems and meeting new people.</b></font> My extroverted side is great at connecting with stakeholders to understand the context and key pieces of information. The data geek in me can piece together messy data scattered across datasets and generate new insights. Bringing these skills together, I can provide recommendations based on a holistic understanding of the business. 
+                    <br> <br>
+                    Here are some of my favorite projects: <br> <br> </p>
+                    
+                <font size="+1"><b>Profitability per product line estimation </font></b>
+                    <li><b>Where:</b> Freelancing, American Italian tourism company</li>
+                    <li><b>Problem:</b> client did not know the labor costs of each product, limiting strategical decision-making</li>
+                    <li><b>Solution:</b> I estimated labor costs across product lines. Moreover, I identified a gap in the knowledge of physical asset costs (e.g., vans and bikes). Once I calculated the costs and profitability per product line, I showed some of the growth bets of the company and its largest B2B client were actually not profitable. </li>
+                    <li><b>Skills:</b> Excel modeling, interviews with 15+ employees</li><br>
 
-                <span class="project-heading"><strong>Implementation of AdTech Product</strong></span>
-                <ul>
-                    <li><strong>Where:</strong> Delivery Hero (Germany), working directly with LATAM, APAC, and MENA regional teams </li>
-                    <li><strong>Problem:</strong> A new AdTech product was the biggest bet of the year but did not generate any growth.</li>
-                    <li><strong>Solution:</strong> I project managed an investigation led by the VP of Global Sales and Revenue. I partnered with local analytics teams to test our product and identify technical issues and sales gaps. After critical technical changes and improved sales guidance, the product grew from €3MM to €10MM within 12 months.</li>
-                    <li><strong>Skills:</strong> Excel, BigQuery, project management </li>
-                </ul>
+                <font size="+1"><b>Implementation of AdTech Product</font></b>
+                    <li><b>Where:</b> Delivery Hero (Germany), working directly with LATAM, APAC, and MENA regional teams </li>
+                    <li><b>Problem:</b> A new AdTech product was the biggest bet of the year, but did not generate any growth.</li>
+                    <li><b>Solution:</b> I project managed an investigation led by the VP of Global Sales and Revenue. I partnered with local analytics teams to test our product and identify technical issues and sales gaps. After critical technical changes and improved sales guidance, the product grew from €3MM to €10MM within 12 months.</li>
+                    <li><b>Skills:</b> Excel, BigQuery, project management </li><br>
 
-                <span class="project-heading"><strong>Go-to-market strategy</strong></span>
-                <ul>
-                    <li><strong>Where:</strong> BCG US, Fortune 500 client</li>
-                    <li><strong>Problem:</strong> Our client, a major distributor, wanted advice on the negotiation of a new contract with a business partner (group purchasing organization)</li>
-                    <li><strong>Solution:</strong> I analyzed transaction data to run pre-post model on the impact of partnership on sales and profitability. The analyses showed that the partnership had significantly hurt our client’s bottom line. I designed the quantitative part of our presentation for CEO, who chose to follow our recommendations. We estimated savings at $118MM over the duration of the contract.</li>
-                    <li><strong>Skills:</strong> Excel modeling, data manipulation, stakeholder interviews</li>
-                </ul>
+                <font size="+1"><b>Go-to-market strategy</font></b>
+                    <li><b>Where:</b> BCG US, Fortune 500 client</li>
+                    <li><b>Problem:</b> Our client, a major distributor, wanted advice on the negotiation of a new contract with a business partner (group purchasing organization)</li>
+                    <li><b>Solution:</b> I analyzed transaction data to run pre-post model on the impact of partnership on sales and profitability. The analyses showed that the partnership had significantly hurt our client’s bottom line. I designed the quantitative part of our presentation for CEO, who chose to follow our recommendations. We estimated savings at $118MM over the duration of the contract.</li>
+                    <li><b>Skills:</b> Excel modeling, data manipulation, stakeholder interviews</li><br><br>
+
+                Here are what some of my previous colleagues have to say:
+                <li> Pedro is a great thrower but a bit too short to play in the league, <b>Michael Jordan, colleague at the LA Lakers</b></li>
+                
                 <br><br><br>
-            </p>
-        </div>
+            </div>
+
     </main>
 
     <footer>
