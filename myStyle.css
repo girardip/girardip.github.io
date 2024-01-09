@@ -145,6 +145,7 @@ footer a {
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 5%;
+    margin-bottom: 20px; /* Adjust the value as needed for spacing */
     font-size: 16px;
     text-align: justify;
     font-family: 'Open Sans', sans-serif;
