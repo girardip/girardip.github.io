@@ -172,6 +172,8 @@ img.displayed {
 
 ul {
     font-size: 16px;
+    padding-left: 15%;
+    padding-right: 10%;
 }
 
 li {
