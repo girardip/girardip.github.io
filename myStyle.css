@@ -47,6 +47,10 @@ body, html {
     padding: 0;
 }
 
+.sections_header.active {
+            border-bottom: 2px solid black; /* Change the color and style as needed */
+        }
+
 footer a {
     text-decoration: none; /* Remove underline for all links within the footer */
 }
