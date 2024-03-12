@@ -1,95 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="myStyle.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-  <title>Business Consulting - Pedro Girardi - </title>
+  <title>Pedro Girardi</title>
   <style>
-    .main_text {
-      font-size: 16px; /* Adjust font size */
-      text-align: justify;
-    }
 
-    .main_text2 {
-      /* Your existing styles for .main_text */
-      padding-left: 15%;
-      padding-right: 15%;
-      padding-top: 0%;
-      margin-bottom: 0px; /* Adjust the value as needed for spacing */
-      font-size: 16px;
-      text-align: justify;
-      font-family: 'Open Sans', sans-serif;
-      column-count: initial; /* Reset column count */
-      column-gap: initial; /* Reset column gap */
-    }
+      .main_text {
+            font-size: 16px; /* Adjust font size */
+            text-align: justify;  
+          
+        }
 
-    .content-container {
-      display: flex; /* Enable flexbox */
-    }
-
-    .image-container {
-      width: 30%; /* Adjust width as needed for the image */
-      margin: 1rem 1rem 1rem 0; /* Adjust margins for spacing */
-      float: left; /* Float left for image positioning */
+                .main_text2 {
+    /* Your existing styles for .main_text */
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 0%;
+    margin-bottom: 0px; /* Adjust the value as needed for spacing */
+    font-size: 16px;
+    text-align: justify;
+    font-family: 'Open Sans', sans-serif;
+    column-count: initial; /* Reset column count */
+    column-gap: initial; /* Reset column gap */
+}
+        
+       .content-container {
+      display: flex;
+      justify-content: flex-start; /* Adjust to align content to the start of the container */
+      align-items: flex-start; /* Keep this to align items to the top */
     }
 
     .main_text-container {
-      flex: 1; /* Take up remaining space */
-      padding: 1rem; /* Add some padding for better look */
+      flex-grow: 1; /* Allows the text container to take up remaining space */
+      padding: 1rem; /* Adjust padding for layout */
     }
 
-    .p {
-      padding: 0px;
-      margin: 0px;
-    }
-
-    .main_text p {
-      margin: 0px;
-      padding: 0px;
-    }
-
-    .main_text-container li {
-      text-indent: 10px; /* Adjust the value as needed */
-      padding-left: 17%;
-      padding-right: 17%;
+    .image-container {
+      flex-shrink: 0; /* Prevents the image container from shrinking */
+      width: 30%; /* Adjust width as needed */
+      margin-left: 1rem; /* Adds margin between text and image */
     }
 
     .image-container img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 75%;
+      width: 100%; /* Makes the image responsive within its container */
+      height: auto; /* Maintain aspect ratio */
     }
-  </style>
+
+    </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="mod_br"></div>
-    <div class="name_header">
-      <a href="/index"><div class="button_name">Pedro Girardi</div></a>
-    </div>
-    <div class="margin_header">
-      <a class="one" href="/index"><div class="sections_header"> Business Consulting </div></a>
-      <a class="one" href="/quantitative-training"><div class="sections_header"> Quantitative Tutoring for Analysts </div></a>
-      <a class="one" href="/cv"><div class="sections_header"> CV </div></a>
-      <a class="one" href="/italiano"><div class="sections_header"> Italiano </div></a>
-    </div>
-    <div class="mod_br_small"></div>
-  </header>
+    <header>
+        <div class="mod_br"></div>
+        <div class="name_header">
+            <a href="/index"><div class="button_name">Pedro Girardi</div></a>
+        </div>
+        <div class="margin_header">
+            <a class="one" href="/index"><div class="sections_header"> Business Consulting </div></a>
+            <a class="one" href="/quantitative-training"><div class="sections_header"> Quantitative Tutoring for Analysts </div></a>
+            <a class="one" href="/cv"><div class="sections_header"> CV </div></a>
+            <a class="one" href="/italiano"><div class="sections_header"> Italiano </div></a>
+        </div>
+        <div class="mod_br_small"></div>
+    </header>
 
-  <main>
-    <div class="content-container">
-      <div class="image-container">
-        <img src="profile.jpg" alt="Profile">
-      </div>
-      <div class="main_text-container">
-        <br>
-        <p class="main_text2"><font size="+2"><b>Hi, my name is Pedro </b></font>and I am a freelancer business consultant with a focus on quantitative analyses. With a degree in Statistics and five years of experience in corporate strategy roles at the likes of BCG US and Red Bull, I can solve complicated data problems and provide practical recommendations to your business. 
-          <br><br> <font size="+1"><b>Here are some of the things that I can do:</b></font>
-          <li><b>Profitability analysis:</b> What parts of your portfolio are pulling you back instead of propelling you forward? What portfolio innovations can help you increase profitability? </li>
-          <li><b>Customer profiling and journey:</b> Do you know your key client personas and how their engagement evolved over time? Are you aware of their biggest pain points throughout their customer journeys?/li>
-          <
+    <main>
+	
+            <div class="main_text-container">
+                    <br>
+                <p class="main_text2"><font size="+2"><b>Hi, my name is Pedro </font></b>and I am a freelancer business consultant with a focus on quantitative analyses. With a degree in Statistics and five years of experience in corporate strategy roles at the likes of BCG US and Red Bull, I can solve complicated data problems and provide practical recommendations to your business. 
+		    <br><br> <font size="+1"><b>Here are some of the things that I can do:</b></font>
+                    <li><b>Profitability analysis:</b>  What parts of your portfolio are pulling you back instead of propelling you forward? What portfolio innovations can help you increase profitability? </li>
+                    <li><b>Customer profiling and journey:</b>  Do you know your key client personas and how their engagement evolved over time? Are you aware of their biggest pain points throughout their customer journeys?/li>
+                    <li><b>Analysis of competitor landscape:</b> Are your price and offerings in line with your competitors?</li></p>
+
+              <div class="image-container">
+            <img src="profile.jpg" alt="Profile">
+        </div>
+				
+                <p class="main_text2"><b><font size="+1"><br>These are some of my favorite past projects: </font><Br><Br> 
+                    Profitability per product line estimation </b>
+					<li><b>Where:</b> Freelancing, Italian-American tourism company</li>
+					<li><b>Problem:</b> My client did not know the labor costs of each product, limiting strategical decision-making</li>
+					<li><b>Solution:</b> I estimated labor costs across product lines. Moreover, I identified a gap in the knowledge of physical asset costs (e.g., vans and bikes). Once I calculated the costs and profitability per product line, I showed some of the growth bets of the company and its largest B2B client were actually not profitable. </li>
+					<li><b>Skills:</b> Excel modeling, interviews with 15+ employees</li> <br></p>
+					
+				<p class="main_text2"><b>Implementation of AdTech Product</b>
+					<li><b>Where:</b> Delivery Hero (Germany), working directly with LATAM, APAC, and MENA regional teams </li>
+                    <li><b>Problem:</b> A new AdTech product was the biggest bet of the year, but did not generate any growth.</li>
+                    <li><b>Solution:</b> I project managed an investigation led by the VP of Global Sales and Revenue. I partnered with local analytics teams to test our product and identify technical issues and sales gaps. After critical technical changes and improved sales guidance, the product grew from €3MM to €10MM within 12 months.</li>
+                    <li><b>Skills:</b> Excel, BigQuery, project management </li><br></p>
+				
+                <p class="main_text2"><b>Go-to-market strategy</b>
+                    <li><b>Where:</b> BCG US, Fortune 500 client</li>
+                    <li><b>Problem:</b> Our client, a major distributor, wanted advice on the negotiation of a new contract with a business partner (group purchasing organization)</li>
+                    <li><b>Solution:</b> I analyzed transaction data to run pre-post model on the impact of partnership on sales and profitability. The analyses showed that the partnership had significantly hurt our client’s bottom line. I designed the quantitative part of our presentation for CEO, who chose to follow our recommendations. We estimated savings at $118MM over the duration of the contract.</li>
+                    <li><b>Skills:</b> Excel modeling, data manipulation, stakeholder interviews</li><br>
+ 
+		<br><br><br>	
+            	If you would like to connect, shoot me an email at contact@girardi.io.   </p>
+                <br><br><br>
+            </div>
+
+    </main>
+
+    <footer>
+        <a href="https://www.linkedin.com/in/pedrogirardi/" target="_blank">
+            <img class="linkedin-logo" src="linkedin.png" alt="LinkedIn Logo">
+        </a>
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  contact@girardi.io &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp P.IVA 01586900522
+    </footer>
+
+</body>
+
+</html>
