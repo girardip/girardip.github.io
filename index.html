@@ -33,7 +33,7 @@
         }
 
         .main_text-container {
-  padding: 1rem; /* Add some padding for better look */
+  flex: 1; /* Allows the element to grow to fill remaining space*/
 }
 
 .p {
@@ -47,14 +47,12 @@
 }
     .main_text-container li {
         text-indent: 10px; /* Adjust the value as needed */
-        padding-left: 17%;
-        padding-right: 17%;
+        padding-left: 15%;
+        padding-right: 15%;
     }
 
 	   .image-container {
-  float: right;
-  width: 30%; /* Adjust width as needed for the image */
-  margin: 1rem 0 1rem 1rem; /* Add margins for spacing */
+  flex: 0 0 30%; /* Sets width to 30% and prevents resizing*/
 }
 
 .image-container img {
@@ -63,6 +61,10 @@
   margin-right: auto;
   width: 75%;
 }
+.content-wrapper {
+  display: flex;
+}
+	    
     </style>
 </head>
 
@@ -93,7 +95,9 @@
                     <li><b>Profitability analysis:</b>  What parts of your portfolio are pulling you back instead of propelling you forward? What portfolio innovations can help you increase profitability? </li>
                     <li><b>Customer profiling and journey:</b>  Do you know your key client personas and how their engagement evolved over time? Are you aware of their biggest pain points throughout their customer journeys?/li>
                     <li><b>Analysis of competitor landscape:</b> Are your price and offerings in line with your competitors?</li></p>
-				
+	    </div>
+
+		<div class="main_text-container">    
                 <p class="main_text2"><b><font size="+1"><br>These are some of my favorite past projects: </font><Br><Br> 
                     Profitability per product line estimation </b>
 					<li><b>Where:</b> Freelancing, Italian-American tourism company</li>
