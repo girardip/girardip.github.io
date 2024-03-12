@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="myStyle.css">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-  <title>Pedro Girardi</title>
-  <style>
 
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="myStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Business Consulting - Pedro Girardi - </title>
+    <style>
       .main_text {
             font-size: 16px; /* Adjust font size */
             text-align: justify;  
@@ -26,28 +26,43 @@
     column-gap: initial; /* Reset column gap */
 }
         
-       .content-container {
-      display: flex;
-      justify-content: flex-start; /* Adjust to align content to the start of the container */
-      align-items: flex-start; /* Keep this to align items to the top */
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align items at the top */
+        }
+
+        .main_text-container {
+  padding: 1rem; /* Add some padding for better look */
+}
+
+.p {
+            padding:0px;
+    margin:0px;
+        }
+       
+        .main_text p {
+   margin: 0px;
+   padding: 0px;
+}
+    .main_text-container li {
+        text-indent: 10px; /* Adjust the value as needed */
+        padding-left: 17%;
+        padding-right: 17%;
     }
 
-    .main_text-container {
-      flex-grow: 1; /* Allows the text container to take up remaining space */
-      padding: 1rem; /* Adjust padding for layout */
-    }
+	   .image-container {
+  float: right;
+  width: 30%; /* Adjust width as needed for the image */
+  margin: 1rem 0 1rem 1rem; /* Add margins for spacing */
+}
 
-    .image-container {
-      flex-shrink: 0; /* Prevents the image container from shrinking */
-      width: 30%; /* Adjust width as needed */
-      margin-left: 1rem; /* Adds margin between text and image */
-    }
-
-    .image-container img {
-      width: 100%; /* Makes the image responsive within its container */
-      height: auto; /* Maintain aspect ratio */
-    }
-
+.image-container img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
     </style>
 </head>
 
@@ -68,7 +83,9 @@
     </header>
 
     <main>
-	
+	<div class="image-container">
+            <img src="profile.jpg" alt="Profile">
+        </div>
             <div class="main_text-container">
                     <br>
                 <p class="main_text2"><font size="+2"><b>Hi, my name is Pedro </font></b>and I am a freelancer business consultant with a focus on quantitative analyses. With a degree in Statistics and five years of experience in corporate strategy roles at the likes of BCG US and Red Bull, I can solve complicated data problems and provide practical recommendations to your business. 
@@ -76,10 +93,6 @@
                     <li><b>Profitability analysis:</b>  What parts of your portfolio are pulling you back instead of propelling you forward? What portfolio innovations can help you increase profitability? </li>
                     <li><b>Customer profiling and journey:</b>  Do you know your key client personas and how their engagement evolved over time? Are you aware of their biggest pain points throughout their customer journeys?/li>
                     <li><b>Analysis of competitor landscape:</b> Are your price and offerings in line with your competitors?</li></p>
-
-              <div class="image-container">
-            <img src="profile.jpg" alt="Profile">
-        </div>
 				
                 <p class="main_text2"><b><font size="+1"><br>These are some of my favorite past projects: </font><Br><Br> 
                     Profitability per product line estimation </b>
