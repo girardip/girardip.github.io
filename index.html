@@ -22,7 +22,32 @@
             height: auto;
         }
 
-                .main_text-container {
+               .main_text {
+            font-size: 16px; /* Adjust font size */
+            text-align: justify;  
+          
+        }
+
+                .main_text2 {
+    /* Your existing styles for .main_text */
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 0%;
+    margin-bottom: 0px; /* Adjust the value as needed for spacing */
+    font-size: 16px;
+    text-align: justify;
+    font-family: 'Open Sans', sans-serif;
+    column-count: initial; /* Reset column count */
+    column-gap: initial; /* Reset column gap */
+}
+        
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align items at the top */
+        }
+
+        .main_text-container {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -41,7 +66,6 @@
         padding-left: 10%;
         padding-right: 10%;
     }
-
         
         
     </style>
@@ -54,9 +78,8 @@
         <a href="/index"><div class="button_name">Pedro Girardi</div></a>
     </div>
     <div class="margin_header">
-        <a class="one" href="/business-consulting"><div class="sections_header"> Business Consulting </div></a>
-        <a class="one" href="/quantitative-training"><div class="sections_header"> Quantitative Tutoring for Analysts </div></a>
         <a class="one" href="/cv"><div class="sections_header"> CV </div></a>
+        <a class="one" href="/quantitative-training"><div class="sections_header"> Quantitative Tutoring </div></a>
         <a class="one" href="/italiano"><div class="sections_header"> Italiano </div></a>
     </div>
     <div class="mod_br_small"></div>
