@@ -44,8 +44,8 @@ header .logo {
 
 .profile-photo {
   border-radius: 50%;
-  width: 180px;
-  height: 180px;
+  width: 210px;
+  height: 210px;
   object-fit: cover;
   border: 4px solid #EAEAEA;
 }
@@ -55,9 +55,14 @@ header .logo {
   margin-bottom: 20px;
 }
 
+.intro h3 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
 .intro p {
   margin-bottom: 10px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #555;
 }
 
