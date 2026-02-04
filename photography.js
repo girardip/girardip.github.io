@@ -1,6 +1,8 @@
 const slides = Array.from(document.querySelectorAll('.slide'));
 const dots = Array.from(document.querySelectorAll('.dot'));
 const controls = document.querySelectorAll('.control-button');
+const navLinks = document.querySelectorAll('.nav-link');
+const galleries = document.querySelectorAll('[data-gallery-section]');
 
 let currentSlide = 0;
 let slideshowTimer;
@@ -39,6 +41,19 @@ dots.forEach((dot, index) => {
   dot.addEventListener('click', () => {
     setSlide(index);
     startSlideshow();
+  });
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    const target = link.dataset.gallery;
+    navLinks.forEach((item) => item.classList.remove('active'));
+    link.classList.add('active');
+
+    galleries.forEach((gallery) => {
+      const isTarget = gallery.id === target;
+      gallery.hidden = !isTarget;
+    });
   });
 });
 

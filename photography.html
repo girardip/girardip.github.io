@@ -5,109 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="format-detection" content="telephone=no">
   <title>Pedro Girardi Photography</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="photography.css">
 </head>
 <body>
   <header class="top-bar">
     <div class="brand">Pedro Girardi Photography</div>
     <nav class="nav" aria-label="Photography collections">
-      <a class="nav-link" href="#street">Street</a>
-      <a class="nav-link" href="#portraits">Portraits</a>
-      <a class="nav-link" href="#landscapes">Landscapes</a>
+      <button class="nav-link active" data-gallery="street">Street</button>
+      <button class="nav-link" data-gallery="portraits">Portraits</button>
+      <button class="nav-link" data-gallery="landscapes">Landscapes</button>
     </nav>
   </header>
 
   <main>
     <section class="hero" aria-label="Featured photographs">
-      <div class="slideshow-wrapper">
-        <button class="control-button" data-action="prev" aria-label="Previous slide">&lt;</button>
-        <div class="slideshow" aria-live="polite">
-          <div class="slides">
-            <div class="slide active">
-              <img src="Photography/slide-01.jpg" alt="Featured photograph 1">
-            </div>
-            <div class="slide">
-              <img src="Photography/slide-02.jpg" alt="Featured photograph 2">
-            </div>
-            <div class="slide">
-              <img src="Photography/slide-03.jpg" alt="Featured photograph 3">
-            </div>
-            <div class="slide">
-              <img src="Photography/slide-04.jpg" alt="Featured photograph 4">
-            </div>
+      <div class="slideshow" aria-live="polite">
+        <div class="slides">
+          <div class="slide active">
+            <img src="IMG_7449.JPG" alt="Street scene with dramatic light">
+          </div>
+          <div class="slide">
+            <img src="your-photo.jpg" alt="Portrait in soft daylight">
+          </div>
+          <div class="slide">
+            <img src="IMG_7449.JPG" alt="City silhouette in motion">
+          </div>
+          <div class="slide">
+            <img src="your-photo.jpg" alt="Quiet moment in monochrome tones">
           </div>
         </div>
-        <button class="control-button" data-action="next" aria-label="Next slide">&gt;</button>
-      </div>
-      <div class="dots" role="tablist" aria-label="Slide selection">
-        <button class="dot active" data-slide="0" aria-label="Go to slide 1"></button>
-        <button class="dot" data-slide="1" aria-label="Go to slide 2"></button>
-        <button class="dot" data-slide="2" aria-label="Go to slide 3"></button>
-        <button class="dot" data-slide="3" aria-label="Go to slide 4"></button>
+        <div class="slideshow-controls">
+          <button class="control-button" data-action="prev" aria-label="Previous slide">&#8592;</button>
+          <div class="dots" role="tablist" aria-label="Slide selection">
+            <button class="dot active" data-slide="0" aria-label="Go to slide 1"></button>
+            <button class="dot" data-slide="1" aria-label="Go to slide 2"></button>
+            <button class="dot" data-slide="2" aria-label="Go to slide 3"></button>
+            <button class="dot" data-slide="3" aria-label="Go to slide 4"></button>
+          </div>
+          <button class="control-button" data-action="next" aria-label="Next slide">&#8594;</button>
+        </div>
       </div>
     </section>
 
-    <section class="collection" id="street">
+    <section class="collection" id="street" data-gallery-section>
       <div class="collection-header">
         <h2>Street</h2>
         <p>Quiet gestures, kinetic light, and fleeting moments stitched into the city rhythm.</p>
       </div>
       <div class="gallery-grid">
-        <img class="wide" src="Photography/street-01.jpg" alt="Street photograph 1">
-        <img src="Photography/street-02.jpg" alt="Street photograph 2">
-        <img class="tall" src="Photography/street-03.jpg" alt="Street photograph 3">
-        <img src="Photography/street-04.jpg" alt="Street photograph 4">
-        <img src="Photography/street-05.jpg" alt="Street photograph 5">
-        <img class="wide" src="Photography/street-06.jpg" alt="Street photograph 6">
-        <img src="Photography/street-07.jpg" alt="Street photograph 7">
-        <img class="tall" src="Photography/street-08.jpg" alt="Street photograph 8">
-        <img src="Photography/street-09.jpg" alt="Street photograph 9">
-        <img src="Photography/street-10.jpg" alt="Street photograph 10">
-        <img class="wide" src="Photography/street-11.jpg" alt="Street photograph 11">
-        <img src="Photography/street-12.jpg" alt="Street photograph 12">
+        <img src="IMG_7449.JPG" alt="Street frame with contrast">
+        <img src="IMG_7449.JPG" alt="Architecture and passerby">
+        <img src="IMG_7449.JPG" alt="Shadows along the sidewalk">
+        <img src="IMG_7449.JPG" alt="Movement in the square">
       </div>
     </section>
 
-    <section class="collection" id="portraits">
+    <section class="collection" id="portraits" data-gallery-section hidden>
       <div class="collection-header">
         <h2>Portraits</h2>
         <p>Intimate studies of expression and stillness, crafted with soft light and space.</p>
       </div>
       <div class="gallery-grid">
-        <img class="tall" src="Photography/portrait-01.jpg" alt="Portrait photograph 1">
-        <img src="Photography/portrait-02.jpg" alt="Portrait photograph 2">
-        <img src="Photography/portrait-03.jpg" alt="Portrait photograph 3">
-        <img class="wide" src="Photography/portrait-04.jpg" alt="Portrait photograph 4">
-        <img src="Photography/portrait-05.jpg" alt="Portrait photograph 5">
-        <img class="tall" src="Photography/portrait-06.jpg" alt="Portrait photograph 6">
-        <img src="Photography/portrait-07.jpg" alt="Portrait photograph 7">
-        <img class="wide" src="Photography/portrait-08.jpg" alt="Portrait photograph 8">
-        <img src="Photography/portrait-09.jpg" alt="Portrait photograph 9">
-        <img src="Photography/portrait-10.jpg" alt="Portrait photograph 10">
-        <img class="tall" src="Photography/portrait-11.jpg" alt="Portrait photograph 11">
-        <img src="Photography/portrait-12.jpg" alt="Portrait photograph 12">
+        <img src="your-photo.jpg" alt="Portrait with gentle light">
+        <img src="your-photo.jpg" alt="Close-up portrait in profile">
+        <img src="your-photo.jpg" alt="Relaxed portrait in muted tones">
+        <img src="your-photo.jpg" alt="Portrait with minimal background">
       </div>
     </section>
 
-    <section class="collection" id="landscapes">
+    <section class="collection" id="landscapes" data-gallery-section hidden>
       <div class="collection-header">
         <h2>Landscapes</h2>
         <p>Open horizons and layered textures that linger between light and atmosphere.</p>
       </div>
       <div class="gallery-grid">
-        <img class="wide" src="Photography/landscape-01.jpg" alt="Landscape photograph 1">
-        <img src="Photography/landscape-02.jpg" alt="Landscape photograph 2">
-        <img src="Photography/landscape-03.jpg" alt="Landscape photograph 3">
-        <img class="tall" src="Photography/landscape-04.jpg" alt="Landscape photograph 4">
-        <img src="Photography/landscape-05.jpg" alt="Landscape photograph 5">
-        <img class="wide" src="Photography/landscape-06.jpg" alt="Landscape photograph 6">
-        <img src="Photography/landscape-07.jpg" alt="Landscape photograph 7">
-        <img class="tall" src="Photography/landscape-08.jpg" alt="Landscape photograph 8">
-        <img src="Photography/landscape-09.jpg" alt="Landscape photograph 9">
-        <img src="Photography/landscape-10.jpg" alt="Landscape photograph 10">
-        <img class="wide" src="Photography/landscape-11.jpg" alt="Landscape photograph 11">
-        <img src="Photography/landscape-12.jpg" alt="Landscape photograph 12">
+        <img src="IMG_7449.JPG" alt="Landscape with long exposure light">
+        <img src="IMG_7449.JPG" alt="Wide view of urban horizon">
+        <img src="IMG_7449.JPG" alt="Soft tones across open space">
+        <img src="IMG_7449.JPG" alt="Minimal landscape composition">
       </div>
     </section>
   </main>
