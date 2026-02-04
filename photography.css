@@ -19,6 +19,7 @@ body {
   margin: 0;
   font-family: "Inter", sans-serif;
   font-weight: 400;
+  letter-spacing: 0.02em;
   background: var(--background);
   color: var(--text-primary);
   min-height: 100vh;
@@ -84,6 +85,8 @@ main {
 
 .slideshow-wrapper {
   width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
