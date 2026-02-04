@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>Pedro Girardi Photography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="photography.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand">Pedro Girardi Photography</div>
+    <nav class="nav" aria-label="Photography collections">
+      <button class="nav-link active" data-gallery="street">Street</button>
+      <button class="nav-link" data-gallery="portraits">Portraits</button>
+      <button class="nav-link" data-gallery="landscapes">Landscapes</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Featured photographs">
+      <div class="slideshow" aria-live="polite">
+        <div class="slides">
+          <div class="slide active">
+            <img src="IMG_7449.JPG" alt="Street scene with dramatic light">
+          </div>
+          <div class="slide">
+            <img src="your-photo.jpg" alt="Portrait in soft daylight">
+          </div>
+          <div class="slide">
+            <img src="IMG_7449.JPG" alt="City silhouette in motion">
+          </div>
+          <div class="slide">
+            <img src="your-photo.jpg" alt="Quiet moment in monochrome tones">
+          </div>
+        </div>
+        <div class="slideshow-controls">
+          <button class="control-button" data-action="prev" aria-label="Previous slide">&#8592;</button>
+          <div class="dots" role="tablist" aria-label="Slide selection">
+            <button class="dot active" data-slide="0" aria-label="Go to slide 1"></button>
+            <button class="dot" data-slide="1" aria-label="Go to slide 2"></button>
+            <button class="dot" data-slide="2" aria-label="Go to slide 3"></button>
+            <button class="dot" data-slide="3" aria-label="Go to slide 4"></button>
+          </div>
+          <button class="control-button" data-action="next" aria-label="Next slide">&#8594;</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection" id="street" data-gallery-section>
+      <div class="collection-header">
+        <h2>Street</h2>
+        <p>Quiet gestures, kinetic light, and fleeting moments stitched into the city rhythm.</p>
+      </div>
+      <div class="gallery-grid">
+        <img src="IMG_7449.JPG" alt="Street frame with contrast">
+        <img src="IMG_7449.JPG" alt="Architecture and passerby">
+        <img src="IMG_7449.JPG" alt="Shadows along the sidewalk">
+        <img src="IMG_7449.JPG" alt="Movement in the square">
+      </div>
+    </section>
+
+    <section class="collection" id="portraits" data-gallery-section hidden>
+      <div class="collection-header">
+        <h2>Portraits</h2>
+        <p>Intimate studies of expression and stillness, crafted with soft light and space.</p>
+      </div>
+      <div class="gallery-grid">
+        <img src="your-photo.jpg" alt="Portrait with gentle light">
+        <img src="your-photo.jpg" alt="Close-up portrait in profile">
+        <img src="your-photo.jpg" alt="Relaxed portrait in muted tones">
+        <img src="your-photo.jpg" alt="Portrait with minimal background">
+      </div>
+    </section>
+
+    <section class="collection" id="landscapes" data-gallery-section hidden>
+      <div class="collection-header">
+        <h2>Landscapes</h2>
+        <p>Open horizons and layered textures that linger between light and atmosphere.</p>
+      </div>
+      <div class="gallery-grid">
+        <img src="IMG_7449.JPG" alt="Landscape with long exposure light">
+        <img src="IMG_7449.JPG" alt="Wide view of urban horizon">
+        <img src="IMG_7449.JPG" alt="Soft tones across open space">
+        <img src="IMG_7449.JPG" alt="Minimal landscape composition">
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>For prints and commissions: <a href="mailto:contact@girardi.io">contact@girardi.io</a></p>
+  </footer>
+
+  <script src="photography.js"></script>
+</body>
+</html>
