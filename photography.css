@@ -190,6 +190,8 @@ main {
   height: auto;
   display: block;
   border-radius: 16px;
+  max-height: 70vh;
+  object-fit: contain;
 }
 
 .footer {
@@ -225,6 +227,7 @@ main {
   position: relative;
   max-width: min(1100px, 92vw);
   max-height: 85vh;
+  width: min(1100px, 92vw);
 }
 
 .lightbox img {
@@ -233,6 +236,7 @@ main {
   object-fit: contain;
   border-radius: 16px;
   display: block;
+  max-height: 85vh;
 }
 
 .lightbox-close {
