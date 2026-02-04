@@ -1,6 +1,10 @@
 const slides = Array.from(document.querySelectorAll('.slide'));
 const dots = Array.from(document.querySelectorAll('.dot'));
 const controls = document.querySelectorAll('.control-button');
+const galleryImages = Array.from(document.querySelectorAll('.gallery-grid img'));
+const lightbox = document.querySelector('.lightbox');
+const lightboxImage = lightbox?.querySelector('img');
+const lightboxClose = lightbox?.querySelector('.lightbox-close');
 
 let currentSlide = 0;
 let slideshowTimer;
@@ -43,3 +47,37 @@ dots.forEach((dot, index) => {
 });
 
 startSlideshow();
+
+const openLightbox = (image) => {
+  if (!lightbox || !lightboxImage) return;
+  lightboxImage.src = image.src;
+  lightboxImage.alt = image.alt || 'Expanded photograph';
+  lightbox.classList.add('active');
+  document.body.classList.add('no-scroll');
+};
+
+const closeLightbox = () => {
+  if (!lightbox || !lightboxImage) return;
+  lightbox.classList.remove('active');
+  document.body.classList.remove('no-scroll');
+  lightboxImage.src = '';
+  lightboxImage.alt = '';
+};
+
+galleryImages.forEach((image) => {
+  image.addEventListener('click', () => openLightbox(image));
+});
+
+lightboxClose?.addEventListener('click', closeLightbox);
+
+lightbox?.addEventListener('click', (event) => {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && lightbox?.classList.contains('active')) {
+    closeLightbox();
+  }
+});
