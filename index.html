@@ -1,30 +1,32 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name = "format-detection" content = "telephone=no">
+  <meta name="format-detection" content="telephone=no">
   <title>Pedro Girardi | Freelance Strategy Consultant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <!-- Header -->
-  <header>
+  <header class="site-header">
     <div class="container">
       <h1 class="logo">PEDRO GIRARDI</h1>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="section hero">
     <div class="container">
       <div class="hero-content">
         <img src="your-photo.jpg" alt="Pedro Girardi" class="profile-photo">
         <div class="intro">
           <h3>Hi, I'm Pedro, an ex-BCG US consultant that specializes in portfolio optimization.</h3>
           <p>I have worked in portfolio optimization projects for clients that range anywhere 15-person family businesses to Fortune 500 companies. My strengths lie in my data skills (I hold a degree in Statistics) and the ability to connect with clients from the C-Level to Jr. Analysts.</p>
-		  <p>I am starting my third year as a freelancer. I love being an independent consultant and my clients love my work too. I am proud to say that every single client of mine has requested follow-up projects. </p>
+          <p>I am starting my third year as a freelancer. I love being an independent consultant and my clients love my work too. I am proud to say that every single client of mine has requested follow-up projects.</p>
           <p>Let's get in touch and set up an intro call.</p>
           <div class="cta-buttons">
             <a href="cv.html" class="btn-download-cv">Download CV</a>
@@ -36,53 +38,53 @@
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="services">
+  <section id="services" class="section services">
     <div class="container">
       <h2>Services</h2>
       <div class="service-list">
         <div class="service">
-          <img src="chart.svg" alt="Service Icon" class="service-icon">
+          <img src="chart.svg" alt="Service Icon" class="service-icon" loading="lazy">
           <h3>Portfolio snapshot</h3>
           <p>Get a single source of truth for your products' performance to make better decisions.</p>
         </div>
         <div class="service">
-          <img src="journey.svg" alt="Service Icon" class="service-icon">
+          <img src="journey.svg" alt="Service Icon" class="service-icon" loading="lazy">
           <h3>Optimization roadmap</h3>
-          <p>Identify levers (e.g., pricing, cost efficiencies) to increase profitability in the short to medium-term. </p>
+          <p>Identify levers (e.g., pricing, cost efficiencies) to increase profitability in the short to medium-term.</p>
         </div>
         <div class="service">
-          <img src="competitor.svg" alt="Service Icon" class="service-icon">
+          <img src="competitor.svg" alt="Service Icon" class="service-icon" loading="lazy">
           <h3>Portfolio strategy review</h3>
-          <p>Design a portfolio that sets you up for success. Know where to invest or divest and plan around significant risks. </p>
+          <p>Design a portfolio that sets you up for success. Know where to invest or divest and plan around significant risks.</p>
         </div>
       </div>
-      <blockquote>
+      <blockquote class="testimonial">
         <p>"Having an <i>external</i> expert eye come in and make sense of different financial data and procedures was great, and we highly recommend working with Pedro to do that."</p>
-        <cite>— Monica Price, Managing Director of BikesPlus</cite>
+        <cite>- Monica Price, Managing Director of BikesPlus</cite>
       </blockquote>
     </div>
   </section>
 
   <!-- Past Projects Section -->
-  <section id="projects" class="projects">
-    <div class="container" style="padding-top: 0px;">
+  <section id="projects" class="section projects">
+    <div class="container">
       <h2>Examples of Past Projects</h2>
       <div class="project-list">
         <div class="project">
           <div class="project-icon">
-            <img src="cash2.png" alt="Icon">
+            <img src="cash2.png" alt="Icon" loading="lazy">
           </div>
           <div class="project-content">
             <h3>Portfolio Optimization for Tourism Client</h3>
             <p><strong>Problem:</strong> My client could not estimate the labor costs of each product, limiting its ability to allocate capital and update pricing. That led to a decline in profitability and the sale of some products at a loss.</p>
             <p><strong>Solution:</strong> I estimated the distribution of labor costs across product lines through on-site observations and interviews. Moreover, I identified a gap in the knowledge of physical asset costs (e.g., vans and bikes) and calculated a product P&L view which also takes these costs into account.</p>
-            <p><strong>Outcomes:</strong> The client identified that their major growth bet was not profitable due to high usage of costly physical assets. They ended the unprofitable contract, saving €0.1MM/year, and implemented a new pricing system based on updated cost information to avoid future losses.</p>
+            <p><strong>Outcomes:</strong> The client identified that their major growth bet was not profitable due to high usage of costly physical assets. They ended the unprofitable contract, saving EUR 0.1MM/year, and implemented a new pricing system based on updated cost information to avoid future losses.</p>
             <p><strong>Skills:</strong> Excel modeling, interviews with 15+ employees</p>
           </div>
         </div>
         <div class="project">
           <div class="project-icon">
-            <img src="phone.png" alt="Icon">
+            <img src="phone.png" alt="Icon" loading="lazy">
           </div>
           <div class="project-content">
             <h3>Portfolio Diagnostic for Major German Tech Company</h3>
@@ -94,13 +96,13 @@
         </div>
         <div class="project">
           <div class="project-icon">
-            <img src="handshake.png" alt="Icon">
+            <img src="handshake.png" alt="Icon" loading="lazy">
           </div>
           <div class="project-content">
             <h3>Go-to-Market Strategy for Fortune 500 Distributor</h3>
             <p><strong>Employer:</strong> BCG US</p>
             <p><strong>Problem:</strong> Our client, a major distributor, wanted advice on the negotiation of a new contract with a business partner (group purchasing organization).</p>
-            <p><strong>Solution:</strong> I analyzed transaction data to estimate the impact of the business partner on customer acquisition as well as potential cannibalization of existing accounts. With that information, I ran a pre-post model on the impact of that business partner on overall sales and profitability. The analyses showed that the partnership had significantly hurt our client’s bottom line.</p>
+            <p><strong>Solution:</strong> I analyzed transaction data to estimate the impact of the business partner on customer acquisition as well as potential cannibalization of existing accounts. With that information, I ran a pre-post model on the impact of that business partner on overall sales and profitability. The analyses showed that the partnership had significantly hurt our client's bottom line.</p>
             <p><strong>Outcomes:</strong> Our client took our recommendation and did not renew the contract, saving $118MM over the following eight years.</p>
             <p><strong>Skills:</strong> Excel modeling, data manipulation, expert interviews</p>
           </div>
@@ -122,8 +124,8 @@
         </ul>
       </nav>
       <div class="social-icons">
-        <a href="https://www.linkedin.com/in/pedrogirardi/" target="_blank">
-          <img src="linkedinLogo.webp" alt="LinkedIn">
+        <a href="https://www.linkedin.com/in/pedrogirardi/" target="_blank" rel="noreferrer">
+          <img src="linkedinLogo.webp" alt="LinkedIn" loading="lazy">
         </a>
       </div>
     </div>

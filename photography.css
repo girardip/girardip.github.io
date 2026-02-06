@@ -51,9 +51,9 @@ a {
 }
 
 .brand {
-  font-size: 2rem;
-  letter-spacing: 0.02em;
-  text-transform: none;
+  font-size: 1.1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -171,6 +171,8 @@ main {
 .collection-header h2 {
   font-size: 2rem;
   margin: 0 0 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 .collection-header p {
