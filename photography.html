@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -18,69 +18,41 @@
   </header>
 
   <main>
-    <section class="hero" aria-label="Featured photographs">
-      <div class="slideshow-wrapper">
-        <button class="control-button" data-action="prev" aria-label="Previous slide">&lt;</button>
-        <div class="slideshow" aria-live="polite">
-          <div class="slides">
-            <div class="slide active">
-              <img src="Photography/slideshow.jpg" alt="Featured photograph 1">
-            </div>
-            <div class="slide">
-              <img src="Photography/slideshow3.jpg" alt="Featured photograph 2">
-            </div>
-            <div class="slide">
-              <img src="Photography/slideshow2.jpg" alt="Featured photograph 4">
-            </div>
-            <div class="slide">
-              <img src="Photography/slideshow4.jpg" alt="Featured photograph 4">
-            </div>
-          </div>
-        </div>
-        <button class="control-button" data-action="next" aria-label="Next slide">&gt;</button>
-      </div>
-      <div class="dots" role="tablist" aria-label="Slide selection">
-        <button class="dot active" data-slide="0" aria-label="Go to slide 1"></button>
-        <button class="dot" data-slide="1" aria-label="Go to slide 2"></button>
-        <button class="dot" data-slide="2" aria-label="Go to slide 3"></button>
-        <button class="dot" data-slide="3" aria-label="Go to slide 4"></button>
-      </div>
-    </section>
-
     <section class="collection" id="street">
       <div class="collection-header">
         <h2>Street</h2>
       </div>
       <div class="gallery-grid">
-        <img class="wide" src="Photography/street1.jpg" alt="Street photograph 1">
-        <img src="Photography/street2.jpg" alt="Street photograph 2">
-        <img class="tall" src="Photography/street3.jpg" alt="Street photograph 3">
-        <img src="Photography/street4.jpg" alt="Street photograph 4">
-        <img src="Photography/street5.jpg" alt="Street photograph 5">
-        <img class="wide" src="Photography/street6.jpg" alt="Street photograph 6">
-        <img src="Photography/street7.jpg" alt="Street photograph 7">
-        <img class="tall" src="Photography/street8.jpg" alt="Street photograph 8">
+        <img src="Photography/street1.jpg" alt="Street photograph 1">
+        <img src="Photography/street2.jpg" alt="Street photograph 2" loading="lazy">
+        <img src="Photography/street3.jpg" alt="Street photograph 3" loading="lazy">
+        <img src="Photography/street4.jpg" alt="Street photograph 4" loading="lazy">
+        <img src="Photography/street6.jpg" alt="Street photograph 6" loading="lazy">
+        <img src="Photography/street7.jpg" alt="Street photograph 7" loading="lazy">
+        <img src="Photography/street8.jpg" alt="Street photograph 8" loading="lazy">
+        <img src="Photography/street9.jpg" alt="Street photograph 9" loading="lazy">
+        <img src="Photography/street10.jpg" alt="Street photograph 10" loading="lazy">
+        <img src="Photography/street11.jpg" alt="Street photograph 11" loading="lazy">
+        <img src="Photography/street12.jpg" alt="Street photograph 12" loading="lazy">
       </div>
     </section>
-  </main>
 
-  
     <section class="collection" id="concert">
       <div class="collection-header">
         <h2>Concert</h2>
       </div>
       <div class="gallery-grid">
-        <img src="Photography/concert0.jpg" alt="Concert photograph 5">
-        <img src="Photography/concert1.jpg" alt="Concert photograph 1">
-        <img src="Photography/concert2.jpg" alt="Concert photograph 2">
-        <img src="Photography/concert3.jpg" alt="Concert photograph 3">
-        <img src="Photography/concert4.jpg" alt="Concert photograph 4">
-        <img src="Photography/concert5.jpg" alt="Concert photograph 5">
-        <img src="Photography/concert6.jpg" alt="Concert photograph 5">
-        <img src="Photography/concert7.jpg" alt="Concert photograph 7">
+        <img src="Photography/concert0.jpg" alt="Concert photograph 1" loading="lazy">
+        <img src="Photography/concert1.jpg" alt="Concert photograph 2" loading="lazy">
+        <img src="Photography/concert2.jpg" alt="Concert photograph 3" loading="lazy">
+        <img src="Photography/concert3.jpg" alt="Concert photograph 4" loading="lazy">
+        <img src="Photography/concert5.jpg" alt="Concert photograph 5" loading="lazy">
+        <img src="Photography/concert6.jpg" alt="Concert photograph 6" loading="lazy">
+        <img src="Photography/concert7.jpg" alt="Concert photograph 7" loading="lazy">
+        <img src="Photography/concert12.jpg" alt="Concert photograph 8" loading="lazy">
       </div>
     </section>
-
+  </main>
 
   <footer class="footer">
     <p>For prints and commissions: <a href="mailto:contact@girardi.io">contact@girardi.io</a></p>
@@ -89,7 +61,9 @@
 
   <div class="lightbox" role="dialog" aria-modal="true" aria-label="Expanded photo view">
     <div class="lightbox-content">
-      <button class="lightbox-close" type="button" aria-label="Close photo view">X</button>
+      <button class="lightbox-close" type="button" aria-label="Close photo view">&#x2715;</button>
+      <button class="lightbox-prev" type="button" aria-label="Previous photograph">&#8249;</button>
+      <button class="lightbox-next" type="button" aria-label="Next photograph">&#8250;</button>
       <img src="" alt="">
     </div>
   </div>
