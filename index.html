@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -1296,6 +1296,80 @@
           transform: none;
         }
       }
+
+      /* ===== Work samples carousel ===== */
+      .samples {
+        padding: 64px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+      .carousel {
+        position: relative;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .carousel-track {
+        overflow: hidden;
+        border-radius: var(--radius);
+        aspect-ratio: 1 / 1; /* change to 16/9 when slides update */
+        background: var(--bg-warm);
+        border: 1px solid var(--rule);
+      }
+      .carousel-track img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+        user-select: none;
+        pointer-events: none;
+      }
+      .carousel-track img.car-active {
+        display: block;
+      }
+      .car-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: color-mix(in oklch, var(--bg) 90%, transparent);
+        border: 1px solid var(--rule);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 2;
+        backdrop-filter: blur(4px);
+        transition: background 0.15s;
+      }
+      .car-btn:hover {
+        background: var(--bg);
+      }
+      .car-btn.prev { left: -20px; }
+      .car-btn.next { right: -20px; }
+      @media (max-width: 780px) {
+        .car-btn.prev { left: 8px; }
+        .car-btn.next { right: 8px; }
+      }
+      .car-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 20px;
+      }
+      .car-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--rule);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.2s;
+      }
+      .car-dot.active {
+        background: var(--ink);
+      }
     </style>
   </head>
 
@@ -1351,6 +1425,34 @@
             download=""
             >Download CV (PDF)</a
           >
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WORK SAMPLES ========== -->
+    <section class="samples">
+      <div class="wrap">
+        <div class="carousel reveal">
+          <div class="carousel-track">
+            <img src="Slide1.JPG" alt="Work sample" class="car-active" />
+            <img src="Slide2.JPG" alt="Work sample" />
+            <img src="Slide3.JPG" alt="Work sample" />
+          </div>
+          <button class="car-btn prev" aria-label="Previous slide">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="car-btn next" aria-label="Next slide">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="car-dots">
+            <button class="car-dot active" aria-label="Slide 1"></button>
+            <button class="car-dot" aria-label="Slide 2"></button>
+            <button class="car-dot" aria-label="Slide 3"></button>
+          </div>
         </div>
       </div>
     </section>
@@ -1852,6 +1954,24 @@
           el.classList.add("reveal");
           io.observe(el);
         });
+
+      // Carousel
+      (function () {
+        const imgs = [...document.querySelectorAll('.carousel-track img')];
+        const dots = [...document.querySelectorAll('.car-dot')];
+        if (!imgs.length) return;
+        let idx = 0;
+        function go(n) {
+          imgs[idx].classList.remove('car-active');
+          dots[idx].classList.remove('active');
+          idx = (n + imgs.length) % imgs.length;
+          imgs[idx].classList.add('car-active');
+          dots[idx].classList.add('active');
+        }
+        document.querySelector('.car-btn.prev').addEventListener('click', () => go(idx - 1));
+        document.querySelector('.car-btn.next').addEventListener('click', () => go(idx + 1));
+        dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+      })();
     </script>
   </body>
 </html>
