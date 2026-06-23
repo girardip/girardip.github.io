@@ -861,6 +861,84 @@
           margin-left: 0 !important;
         }
       }
+
+      /* PDF.js page viewer */
+      .pdf-viewer {
+        border: 1px solid var(--rule);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: oklch(0.92 0.01 60);
+      }
+      .pdf-canvas-wrap {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 420px;
+        background: oklch(0.92 0.01 60);
+      }
+      .pdf-canvas-wrap canvas {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        box-shadow: 0 2px 12px oklch(0.22 0.015 60 / 0.12);
+      }
+      .pdf-loading {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: var(--ink-3);
+        background: oklch(0.92 0.01 60);
+        transition: opacity 0.2s;
+      }
+      .pdf-loading.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .pdf-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 12px 20px;
+        border-top: 1px solid var(--rule);
+        background: var(--bg);
+      }
+      .pdf-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--rule);
+        background: var(--bg);
+        color: var(--ink);
+        font: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s, border-color 0.15s, color 0.15s;
+      }
+      .pdf-btn:hover:not(:disabled) {
+        background: var(--ink);
+        color: var(--bg);
+        border-color: var(--ink);
+      }
+      .pdf-btn:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
+      .pdf-page-info {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-3);
+        min-width: 60px;
+        text-align: center;
+      }
       .case-has-video {
         color: var(--accent);
         font-weight: 600;
@@ -1666,11 +1744,27 @@
             <div class="case-body">
               <div class="case-body-inner">
                 <div class="case-pdf-wrap" style="margin: 0 0 32px 104px;">
-                  <iframe
-                    src="ActiveItaly.pdf"
-                    title="Active Italy — institutional presentation"
-                    style="width: 100%; height: 680px; border: 0; display: block; border-radius: var(--radius); border: 1px solid var(--rule);"
-                  ></iframe>
+                  <div class="pdf-viewer" id="pdf-viewer-ai">
+                    <div class="pdf-canvas-wrap">
+                      <canvas id="pdf-canvas-ai"></canvas>
+                      <div class="pdf-loading" id="pdf-loading-ai">Loading…</div>
+                    </div>
+                    <div class="pdf-controls">
+                      <button class="pdf-btn" id="pdf-prev-ai" aria-label="Previous page" disabled>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                          <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Prev
+                      </button>
+                      <span class="pdf-page-info" id="pdf-page-info-ai">— / —</span>
+                      <button class="pdf-btn" id="pdf-next-ai" aria-label="Next page" disabled>
+                        Next
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                          <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1889,6 +1983,71 @@
           el.classList.add("reveal");
           io.observe(el);
         });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs" type="module"></script>
+    <script type="module">
+      import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.min.mjs";
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.4.168/pdf.worker.min.mjs";
+
+      const canvas   = document.getElementById("pdf-canvas-ai");
+      const loading  = document.getElementById("pdf-loading-ai");
+      const info     = document.getElementById("pdf-page-info-ai");
+      const btnPrev  = document.getElementById("pdf-prev-ai");
+      const btnNext  = document.getElementById("pdf-next-ai");
+      const ctx      = canvas.getContext("2d");
+
+      let pdfDoc      = null;
+      let currentPage = 1;
+      let rendering   = false;
+
+      async function renderPage(num) {
+        if (rendering) return;
+        rendering = true;
+        loading.classList.remove("hidden");
+
+        const page     = await pdfDoc.getPage(num);
+        const viewport = page.getViewport({ scale: window.devicePixelRatio >= 1.5 ? 2 : 1.5 });
+
+        canvas.width  = viewport.width;
+        canvas.height = viewport.height;
+        canvas.style.width  = Math.floor(viewport.width  / (window.devicePixelRatio >= 1.5 ? 2 : 1.5)) + "px";
+        canvas.style.height = Math.floor(viewport.height / (window.devicePixelRatio >= 1.5 ? 2 : 1.5)) + "px";
+
+        await page.render({ canvasContext: ctx, viewport }).promise;
+
+        loading.classList.add("hidden");
+        info.textContent = `${num} / ${pdfDoc.numPages}`;
+        btnPrev.disabled = num <= 1;
+        btnNext.disabled = num >= pdfDoc.numPages;
+        rendering = false;
+      }
+
+      btnPrev.addEventListener("click", () => {
+        if (currentPage > 1) renderPage(--currentPage);
+      });
+      btnNext.addEventListener("click", () => {
+        if (currentPage < pdfDoc.numPages) renderPage(++currentPage);
+      });
+
+      // Keyboard navigation when focus is inside the viewer
+      document.getElementById("pdf-viewer-ai").addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+          e.preventDefault();
+          if (currentPage < pdfDoc.numPages) renderPage(++currentPage);
+        }
+        if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+          e.preventDefault();
+          if (currentPage > 1) renderPage(--currentPage);
+        }
+      });
+
+      pdfjsLib.getDocument("ActiveItaly.pdf").promise.then((doc) => {
+        pdfDoc = doc;
+        renderPage(currentPage);
+      }).catch(() => {
+        loading.textContent = "Could not load PDF.";
+      });
     </script>
   </body>
 </html>
