@@ -1160,6 +1160,35 @@
         border-radius: 999px;
         border: 1px solid var(--rule);
       }
+      .case-more {
+        padding: 4px 0 32px 104px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+      .case-more a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--accent-ink);
+        font-weight: 600;
+        font-size: 14.5px;
+        text-decoration: none;
+      }
+      .case-more a:hover {
+        text-decoration: underline;
+      }
+      .case-more a svg {
+        transition: transform 0.2s;
+      }
+      .case-more a:hover svg {
+        transform: translateX(3px);
+      }
+      @media (max-width: 880px) {
+        .case-more {
+          padding-left: 0;
+        }
+      }
 
       /* ===== About ===== */
       .about {
@@ -1527,7 +1556,7 @@
         <div class="section-label">Selected work</div>
         <h2 class="section-title">Recent engagements.</h2>
         <p class="section-sub">
-          Four recent examples — click any to expand.
+          Five recent examples — click any to expand.
         </p>
 
         <div class="case-list" id="cases">
@@ -1765,6 +1794,97 @@
                       </button>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="case" id="case-ai-product">
+            <button class="case-head" aria-expanded="false">
+              <div class="case-tag">Personal project · AI product</div>
+              <div>
+                <div class="case-title">
+                  AI tutor for the Italian National Tour Guide Exam
+                </div>
+                <div class="case-outcome">
+                  <span class="win">Shipped solo</span>, from voice AI to an
+                  LLM grading engine to tiered payments, live in production
+                </div>
+              </div>
+              <div class="case-toggle">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path
+                    d="M8 3v10M3 8h10"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div class="case-body">
+              <div class="case-body-inner">
+                <div class="case-body-content">
+                  <div class="case-block">
+                    <h4>Problem</h4>
+                    <p>
+                      Candidates for a professional licensing exam (Italian
+                      national tour guides) have to perform, unscripted, in
+                      front of a live evaluation panel. There was no way to
+                      rehearse that specific skill. Reading notes builds
+                      recognition, not the ability to produce facts out loud
+                      under pressure.
+                    </p>
+                  </div>
+                  <div class="case-block">
+                    <h4>What I built</h4>
+                    <p>
+                      A voice-based practice examiner: live transcription, an
+                      LLM grading engine scored against the real official
+                      rubric, follow-up questions generated from the
+                      candidate's own answer, and tiered payments with
+                      server-enforced entitlement logic.
+                    </p>
+                  </div>
+                  <div class="case-block">
+                    <h4>Why it's here</h4>
+                    <p>
+                      It's the clearest example I have of how I approach AI
+                      for clients: not "add a chatbot," but find the one
+                      step AI can genuinely do better, and build the
+                      guardrails around it as carefully as the AI itself.
+                    </p>
+                  </div>
+                </div>
+                <div class="case-more">
+                  <a href="ai-case-study.html">
+                    Read the full case study
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M3 8h10m0 0L8.5 3.5M13 8l-4.5 4.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a
+                    href="https://guida-turistica-prep.vercel.app/"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Try it
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M6 10l6-6m0 0H8m4 0v4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>

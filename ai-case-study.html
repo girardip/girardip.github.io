@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Case study: building an AI product solo, end to end | Pedro Girardi
+    </title>
+    <meta
+      name="description"
+      content="How I designed, built, and shipped a paid AI product on my own: voice AI, an LLM grading engine, and tiered payments. A worked example of how I approach AI implementation for clients."
+    />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: oklch(0.97 0.015 85);
+        --bg-warm: oklch(0.94 0.025 75);
+        --ink: oklch(0.22 0.015 60);
+        --ink-2: oklch(0.42 0.015 60);
+        --ink-3: oklch(0.6 0.012 60);
+        --rule: oklch(0.88 0.018 75);
+        --accent: oklch(0.58 0.14 40);
+        --accent-ink: oklch(0.58 0.14 40);
+        --accent-soft: oklch(0.94 0.025 75);
+        --max: 860px;
+        --radius: 14px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 0 20px;
+        }
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        margin: 0;
+        text-wrap: balance;
+      }
+      p {
+        text-wrap: pretty;
+      }
+      a {
+        color: var(--accent-ink);
+      }
+
+      /* ===== Nav ===== */
+      nav.top {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: color-mix(in oklch, var(--bg) 85%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--rule);
+      }
+      nav.top .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+        max-width: 1120px;
+      }
+      .brand {
+        font-family: "Fraunces", serif;
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .brand .dot {
+        color: var(--accent);
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--ink-2);
+        text-decoration: none;
+        font-size: 14.5px;
+        font-weight: 500;
+      }
+      .back-link:hover {
+        color: var(--ink);
+      }
+      .back-link svg {
+        transition: transform 0.15s;
+      }
+      .back-link:hover svg {
+        transform: translateX(-3px);
+      }
+
+      /* ===== Header ===== */
+      .cs-header {
+        padding: 64px 0 48px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .cs-eyebrow {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent-ink);
+        margin-bottom: 20px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .cs-eyebrow::before {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: var(--accent);
+      }
+      .cs-header h1 {
+        font-size: clamp(32px, 5vw, 46px);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+        max-width: 20ch;
+        margin-bottom: 20px;
+      }
+      .cs-dek {
+        font-size: 19px;
+        color: var(--ink-2);
+        max-width: 60ch;
+        margin: 0;
+      }
+      .cs-facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 32px;
+      }
+      .cs-facts span {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-2);
+        background: var(--bg-warm);
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        padding: 7px 14px;
+      }
+      .cs-try {
+        margin-top: 24px;
+      }
+      .cs-try a {
+        display: inline-flex;
+        align-items: center;
+        color: var(--accent-ink);
+        font-weight: 600;
+        font-size: 15px;
+        text-decoration: none;
+      }
+      .cs-try a:hover {
+        text-decoration: underline;
+      }
+
+      /* ===== Body ===== */
+      .cs-body {
+        padding: 56px 0;
+      }
+      .cs-body > .wrap > * + * {
+        margin-top: 44px;
+      }
+      .cs-body h2 {
+        font-size: clamp(24px, 3vw, 30px);
+        line-height: 1.15;
+        font-weight: 400;
+        margin-bottom: 16px;
+      }
+      .cs-body h3 {
+        font-size: 19px;
+        font-weight: 600;
+        font-family: "Inter", sans-serif;
+        color: var(--ink);
+        margin-bottom: 8px;
+      }
+      .cs-body p {
+        color: var(--ink-2);
+        margin: 0 0 16px;
+      }
+      .cs-body p:last-child {
+        margin-bottom: 0;
+      }
+      .cs-body strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+      .lede-block p {
+        font-size: 18.5px;
+        color: var(--ink);
+        line-height: 1.6;
+      }
+
+      .built-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 14px;
+      }
+      .built-list li {
+        display: grid;
+        grid-template-columns: 22px 1fr;
+        gap: 12px;
+        color: var(--ink-2);
+        line-height: 1.55;
+      }
+      .built-list li::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--accent);
+        margin-top: 8px;
+      }
+      .built-list strong {
+        color: var(--ink);
+      }
+
+      /* ===== Media placeholders ===== */
+      .media-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      @media (max-width: 640px) {
+        .media-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .media-slot {
+        aspect-ratio: 4/3;
+        border-radius: var(--radius);
+        border: 1px dashed var(--rule);
+        background: var(--bg-warm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 24px;
+      }
+      .media-slot span {
+        font-size: 13.5px;
+        color: var(--ink-3);
+        line-height: 1.5;
+      }
+      .media-slot--video {
+        aspect-ratio: 16/9;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .media-slot--video iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: calc(var(--radius) - 1px);
+      }
+
+      /* ===== Closing CTA ===== */
+      .cs-cta {
+        padding: 72px 0 88px;
+        border-top: 1px solid var(--rule);
+        background: var(--ink);
+        color: var(--bg);
+      }
+      .cs-cta h2 {
+        color: var(--bg);
+        font-size: clamp(26px, 3.5vw, 34px);
+        font-weight: 400;
+        margin-bottom: 16px;
+        max-width: 22ch;
+      }
+      .cs-cta p {
+        color: oklch(0.82 0.01 60);
+        max-width: 52ch;
+        margin: 0 0 32px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 24px;
+        border-radius: 999px;
+        font-family: "Inter", sans-serif;
+        font-size: 15.5px;
+        font-weight: 500;
+        text-decoration: none;
+        border: 1px solid transparent;
+        transition: all 0.18s ease;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+      }
+      .btn-primary:hover {
+        background: oklch(0.62 0.15 40);
+        transform: translateY(-1px);
+      }
+      .btn-primary svg {
+        transition: transform 0.2s;
+      }
+      .btn-primary:hover svg {
+        transform: translateX(3px);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--bg);
+        border-color: oklch(0.5 0.015 60);
+      }
+      .btn-secondary:hover {
+        border-color: var(--bg);
+      }
+      .cs-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      footer {
+        padding: 28px 0;
+      }
+      footer .wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: var(--ink-3);
+        max-width: 1120px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      footer a {
+        color: inherit;
+        text-decoration: none;
+      }
+      footer a:hover {
+        color: var(--ink);
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="top">
+      <div class="wrap">
+        <a class="brand" href="index.html"
+          >Pedro Girardi Consulting<span class="dot">.</span></a
+        >
+        <a class="back-link" href="index.html#cases">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path
+              d="M13 8H3m0 0l4.5-4.5M3 8l4.5 4.5"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          Back to work
+        </a>
+      </div>
+    </nav>
+
+    <header class="cs-header">
+      <div class="wrap">
+        <div class="cs-eyebrow">Case study · AI implementation</div>
+        <h1>Building an AI product solo, end to end</h1>
+        <p class="cs-dek">
+          A personal project I use as a concrete example of how I approach AI
+          for clients: not "add a chatbot," but find the one step in a
+          process that AI can genuinely do better than the status quo, and
+          engineer the guardrails around it as carefully as the AI itself.
+        </p>
+        <div class="cs-facts">
+          <span>~3 min read</span>
+          <span>Solo-built, design through production</span>
+          <span>Real-time voice AI</span>
+          <span>LLM grading engine</span>
+          <span>Tiered payments</span>
+        </div>
+        <div class="cs-try">
+          <a
+            href="https://guida-turistica-prep.vercel.app/"
+            target="_blank"
+            rel="noopener"
+          >
+            Try the AI tutor for the Italian National Tour Guide Exam ↗
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="cs-body">
+      <div class="wrap">
+        <section class="lede-block">
+          <p>
+            The product:
+            <a
+              href="https://guida-turistica-prep.vercel.app/"
+              target="_blank"
+              rel="noopener"
+              >an AI tutor for the Italian National Tour Guide Exam</a
+            >, built for a licensing exam that requires candidates to
+            speak, unscripted, in front of an evaluation panel. There was
+            no way to rehearse that, so I built the examiner.
+          </p>
+        </section>
+
+        <section>
+          <h2>The problem, and why it's an SME problem</h2>
+          <p>
+            Strip away the exam-specific detail and it's a problem most
+            SMEs have in some form:
+            <strong
+              >a skill that can only be learned live, in front of a real
+              evaluator, where practice is scarce and feedback is
+              slow.</strong
+            >
+            Sales pitches rehearsed only in your head. Frontline staff
+            corrected once a quarter, after the mistake. Any process where
+            reading the manual and performing under pressure are different
+            skills, and only the second one gets judged.
+          </p>
+          <p>
+            The same logic carries over directly to client work. The AI
+            doesn't need to replace the salesperson or the frontline
+            employee, it needs to replace the missing rehearsal: patient,
+            always available, reacting to what someone actually said
+            instead of a script. That's usually a narrower, cheaper, and
+            more defensible use case than "AI does the whole job."
+          </p>
+        </section>
+
+        <section>
+          <h2>What I actually built</h2>
+          <ul class="built-list">
+            <li>
+              <span
+                ><strong>Voice capture &amp; live transcription</strong>,
+                5–7 minutes of speaking, browser-only, no app.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>An LLM grading engine</strong> scored against the
+                real official exam rubric, using the same criteria as the
+                actual panel.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Follow-up questions</strong> generated from the
+                candidate's own answer: the one part of the exam that
+                can't be rehearsed any other way.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>A weak-point map</strong> that flags exactly which
+                part of the answer was thin.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Tiered access</strong> (free, standard, full) with
+                a server-enforced free quota, not a time-limited
+                trial.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Payments, reconciliation and refunds</strong>
+                wired directly to entitlement logic, with no manual
+                reconciliation.</span
+              >
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <!--
+            TODO: replace with a real demo embed once the video/GIF is ready.
+            For a YouTube video, swap this div for:
+            <div class="media-slot--video">
+              <iframe src="https://youtube.com/embed/VIDEO_ID" title="Demo: AI tutor for the Italian National Tour Guide Exam" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          -->
+          <div class="media-slot media-slot--video">
+            <span>Demo video/GIF placeholder<br />product walkthrough</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>The decisions that matter more than the tech stack</h2>
+          <p>
+            Anyone can call an LLM API. The judgment is in what you build
+            <em>around</em> the call, the part that transfers directly to
+            any AI project I'd take on for a client:
+          </p>
+          <ul class="built-list">
+            <li>
+              <span
+                ><strong>Adaptive content, not a content library.</strong>
+                Follow-ups and the weak-point diagnosis are generated per
+                session from what the user actually said.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Privacy minimized by default.</strong> No audio
+                is ever stored, and transcripts exist only for the
+                duration of the call.</span
+              >
+            </li>
+            <li>
+              <span
+                ><strong>Built and shipped solo</strong>, using Claude as
+                the development partner itself: the same leverage
+                available to any small team directing it well.</span
+              >
+            </li>
+          </ul>
+          <p>
+            Every one of these transfers directly to client work. The tech
+            stack changes, the judgment calls don't.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <section class="cs-cta">
+      <div class="wrap">
+        <h2>Thinking about where this applies to your business?</h2>
+        <p>
+          The pattern is the same for a 10-person sales team as it is for
+          an exam: find the one step where practice or feedback is the
+          bottleneck, then build the guardrails as carefully as the AI
+          itself. A 30-minute call is enough to know if there's a real
+          fit.
+        </p>
+        <div class="cs-cta-row">
+          <a
+            href="https://calendly.com/pedro-em54/30min"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-primary"
+          >
+            Book a 30-min intro call
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h10m0 0L8.5 3.5M13 8l-4.5 4.5"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="https://guida-turistica-prep.vercel.app/"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-secondary"
+          >
+            Try the AI tutor ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <span>© Pedro Girardi 2026</span>
+        <a href="index.html">← Back to girardi.io</a>
+      </div>
+    </footer>
+  </body>
+</html>
